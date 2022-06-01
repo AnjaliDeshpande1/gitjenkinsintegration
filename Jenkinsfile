@@ -1,27 +1,17 @@
-// pipeline {
-//     agent any
-
-//     stages {
-//         stage('Build') {
-//             steps {
-//                 sh 'javac HelloWorld.java'
-//             }
-//         }
-//         stage('Run') {
-//             steps {
-//                 sh 'java HelloWorld'
-//             }
-//         }
-//     }
-// }
-
-
 pipeline {
     agent any
+
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'mvn --version'
+                echo "HelloWorld"
+               // sh 'javac HelloWorld.java'
+            }
+        }
+        stage('Run') {
+            steps {
+                echo "HelloWorld"
+                //sh 'java HelloWorld'
             }
         }
     }
