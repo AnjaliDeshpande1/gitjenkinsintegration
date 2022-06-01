@@ -27,20 +27,20 @@ agent any
   
 stages {
 
-        stage('Cloning our Git') 
-        {
-          steps {
-                    git 'https://github.com/AnjaliDeshpande1/gitjenkinsintegration.git'
-                }
-        }
-//         stage('Building our image') 
+//         stage('Cloning our Git') 
 //         {
-//           steps{
-//             script {
-//                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
-//                     }
+//           steps {
+//                     git 'https://github.com/AnjaliDeshpande1/gitjenkinsintegration.git'
 //                 }
-//          }
+//         }
+        stage('Building our image') 
+        {
+          steps{
+            script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    }
+                }
+         }
 //          stage('Deploy our image') 
 //          {
 //             steps{
