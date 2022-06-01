@@ -45,16 +45,17 @@ stages {
          {
             steps{
               script {
-                  docker.withRegistry( '', registryCredential ) {
-                  dockerImage.push()
-                     }
+                  docker.withRegistry( '', registryCredential ) 
+                      {
+                        dockerImage.push()
+                      }
+                  }
                 }
-         }
-  }
-stage('Cleaning up') {
-    steps{
-              bat "docker rmi $registry:$BUILD_NUMBER"
+          }
+          stage('Cleaning up') {
+              steps{
+                  bat "docker rmi $registry:$BUILD_NUMBER"
+              }
           }
   }
-}
 }
