@@ -1,22 +1,3 @@
-// pipeline {
-//     agent any
-
-//     stages {
-//         stage('Build') {
-//             steps {
-//                // echo "HelloWorld"
-//                bat 'javac HelloWorld.java'
-//                 bat 'java -version'
-//             }
-//         }
-//         stage('Run') {
-//             steps {
-//                 //echo "HelloWorld"
-//                 bat 'java HelloWorld'
-//             }
-//         }
-//     }
-// }
 pipeline {
   environment {
   registry = "anjalideshpande/demo"
@@ -26,13 +7,6 @@ pipeline {
 agent any
   
 stages {
-
-//         stage('Cloning our Git') 
-//         {
-//           steps {
-//                     git 'https://github.com/AnjaliDeshpande1/gitjenkinsintegration.git'
-//                 }
-//         }
         stage('Build image') 
         {
           steps{
