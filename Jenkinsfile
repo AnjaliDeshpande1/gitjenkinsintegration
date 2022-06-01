@@ -27,7 +27,7 @@ agent any
 stages {
 stage('Cloning our Git') {
 steps {
-git 'https://github.com/AnjaliDeshpande1/gitjenkinsintegration.git'
+git clone 'https://github.com/AnjaliDeshpande1/gitjenkinsintegration.git'
 }
 }
 stage('Building our image') {
