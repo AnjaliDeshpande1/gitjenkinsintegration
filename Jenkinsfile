@@ -3,7 +3,8 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo 'Hello World'
+                javac HelloWorld.java
+                java HelloWorld
             }
         }
     }
