@@ -33,7 +33,7 @@ stages {
 //                     git 'https://github.com/AnjaliDeshpande1/gitjenkinsintegration.git'
 //                 }
 //         }
-        stage('Building our image') 
+        stage('Build image') 
         {
           steps{
             script {
@@ -41,17 +41,17 @@ stages {
                     }
                 }
          }
-//          stage('Deploy our image') 
-//          {
-//             steps{
-//               script {
-//                   docker.withRegistry( '', registryCredential ) 
-//                       {
-//                         dockerImage.push()
-//                       }
-//                   }
-//                 }
-//           }
+         stage('Deploy the image') 
+         {
+            steps{
+              script {
+                  docker.withRegistry( '', registryCredential ) 
+                      {
+                        dockerImage.push()
+                      }
+                  }
+                }
+          }
 //           stage('Cleaning up') {
 //               steps{
 //                   bat "docker rmi $registry:$BUILD_NUMBER"
