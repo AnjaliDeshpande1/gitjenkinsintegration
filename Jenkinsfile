@@ -18,38 +18,43 @@
 //     }
 // }
 pipeline {
-environment {
-registry = "anjalideshpande/Demo"
-registryCredential = 'anjalideshpande'
-dockerImage = ''
+  environment {
+  registry = "anjalideshpande/Demo"
+  registryCredential = 'anjalideshpande'
+  dockerImage = ''
 }
 agent any
+  
 stages {
-stage('Cloning our Git') {
-steps {
-git clone 'https://github.com/AnjaliDeshpande1/gitjenkinsintegration.git'
-}
-}
-stage('Building our image') {
-steps{
-script {
-dockerImage = docker.build registry + ":$BUILD_NUMBER"
-}
-}
-}
-stage('Deploy our image') {
-steps{
-script {
-docker.withRegistry( '', registryCredential ) {
-dockerImage.push()
-}
-}
-}
-}
+
+        stage('Cloning our Git') 
+        {
+          steps {
+                    git 'https://github.com/AnjaliDeshpande1/gitjenkinsintegration.git'
+                }
+        }
+        stage('Building our image') 
+        {
+          steps{
+            script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    }
+                }
+         }
+         stage('Deploy our image') 
+         {
+            steps{
+              script {
+                  docker.withRegistry( '', registryCredential ) {
+                  dockerImage.push()
+                     }
+                }
+         }
+  }
 stage('Cleaning up') {
-steps{
-sh "docker rmi $registry:$BUILD_NUMBER"
-}
-}
+    steps{
+              bat "docker rmi $registry:$BUILD_NUMBER"
+          }
+  }
 }
 }
