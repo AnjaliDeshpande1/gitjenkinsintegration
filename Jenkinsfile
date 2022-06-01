@@ -5,14 +5,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo "HelloWorld"
-               // sh 'javac HelloWorld.java'
+               bat 'javac HelloWorld.java'
                 bat 'java -version'
             }
         }
         stage('Run') {
             steps {
                 echo "HelloWorld"
-                //sh 'java HelloWorld'
+                bat 'java HelloWorld'
             }
         }
     }
