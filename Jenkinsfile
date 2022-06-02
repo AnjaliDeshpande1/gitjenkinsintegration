@@ -1,7 +1,7 @@
 pipeline {
   environment {
   registry = "anjalideshpande/demo"
-  registryCredential = 'demo'
+  registryCredential = '57d4e0bf-5590-4ff0-bebb-0f7e10acd3c8'
   dockerImage = ''
 }
 agent any
